@@ -15,7 +15,8 @@ import { JwtService } from '@nestjs/jwt';
 import { LoginDto } from './dto/login.dto/login.dto';
 import * as sgMail from '@sendgrid/mail';
 import { ForgotPasswordDto } from './dto/forget-password/forget-password.dto';
-sgMail.setApiKey('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');
+const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
+sgMail.setApiKey(SENDGRID_API_KEY!);
 
 @Injectable()
 export class AuthService {
