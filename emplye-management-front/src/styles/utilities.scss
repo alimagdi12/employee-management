@@ -1,0 +1,70 @@
+@import 'colors';
+
+/* Mixins */
+
+@mixin custom-button(
+  $width: 100%,
+  $height: 38px,
+  $color: black,
+  $background: transparent,
+  $border-radius: 10px,
+  $font-size: 16px,
+  $font-weight: 400
+) {
+  width: $width;
+  height: $height;
+  color: $color;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  background-color: $background;
+  border-radius: $border-radius;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+@mixin button-animation() {
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+/* Loaders */
+
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(0, 0%, 96%);
+  }
+
+  0% {
+    background-color: hsl(0, 0%, 80%);
+  }
+}
+
+@mixin skeleton-style($w, $h) {
+  width: $w;
+  height: $h;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}

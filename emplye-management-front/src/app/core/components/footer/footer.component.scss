@@ -1,0 +1,85 @@
+@import 'variables';
+@import 'colors';
+
+footer {
+  width: 100%;
+  background-color: map-get($map: $blue, $key: 'main');
+  margin-top: 50px;
+}
+p {
+  color: white;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.body {
+  padding: 50px 50px 10px 50px;
+  justify-content: space-between;
+}
+.subscription p {
+  font-size: 34px;
+  margin-bottom: 5px !important;
+}
+
+.details {
+  gap: 80px;
+}
+.call-us p {
+  font-size: 32px;
+}
+.wallet p {
+  font-size: 20px;
+}
+
+.apps-section .head {
+  font-size: 35px;
+}
+.apps-section .text {
+  font-size: 23px;
+  font-weight: 400;
+}
+
+.social-media {
+  position: relative;
+}
+
+.social-media p {
+  font-size: 25px;
+}
+.apps img {
+  width: 200px;
+}
+.icons {
+  left: 0;
+  position: absolute;
+  bottom: 0;
+  &.en {
+    right: 0;
+  }
+}
+
+.footer {
+  width: 100%;
+  background-color: map-get($map: $orange, $key: 'main');
+  padding: 0 20px;
+  margin-bottom: 10px;
+  height: 100px;
+  &.is-result {
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+}
+
+.logo img {
+  height: 120px;
+}
+
+.hotls-result {
+  gap: 80px;
+}
+.license-result {
+  gap: 30px;
+}
+.hotel-text-result {
+  font-size: 28px;
+}

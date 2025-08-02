@@ -1,0 +1,42 @@
+{
+
+  "header": {
+    "support": "الدعم",
+    "myTravels": "رحلاتي",
+    "login": "تسجيل الدخول",
+    "languageMenu": {
+      "english": "EN (الإنجليزية)",
+      "arabic": "AR (العربية)"
+    }
+  },
+  "employees": {
+    "title": "الموظفون",
+    "addEmployee": "إضافة موظف",
+    "filterByName": "تصفية حسب الاسم",
+    "filter": "تصفية",
+    "code": "الرمز",
+    "name": "الاسم",
+    "job": "الوظيفة",
+    "phone": "الهاتف",
+    "actions": "الإجراءات"
+  },
+  "employeeDetails": {
+    "title": "تفاصيل الموظف",
+    "name": "الاسم",
+    "code": "الكود",
+    "maritalStatus": "الحالة الاجتماعية",
+    "birthdate": "تاريخ الميلاد",
+    "phone": "رقم الهاتف",
+    "religion": "الديانة",
+    "address": "العنوان",
+    "job": "الوظيفة",
+    "appointmentDate": "تاريخ التعيين",
+    "workReceiptDate": "تاريخ استلام العمل",
+    "schoolEntryDate": "تاريخ دخول المدرسة",
+    "currentDegree": "الدرجة الحالية",
+    "currentDegreeDate": "تاريخ الحصول على الدرجة",
+    "transferPlace": "جهة النقل",
+    "insuranceNumber": "رقم التأمين",
+    "close": "إغلاق"
+  }
+}

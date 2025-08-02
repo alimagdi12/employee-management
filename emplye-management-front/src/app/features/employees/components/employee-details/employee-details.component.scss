@@ -1,0 +1,19 @@
+.details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detail-row {
+  display: flex;
+  gap: 16px;
+}
+
+.detail-label {
+  font-weight: 500;
+  min-width: 150px;
+}
+
+.detail-value {
+  flex: 1;
+}

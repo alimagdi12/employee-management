@@ -1,0 +1,67 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  min-height: 100vh;
+  background: #f5f7fa;
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+  }
+}
+
+.signup-card {
+  width: 100%;
+  max-width: 450px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+
+  mat-card-header {
+    justify-content: center;
+    margin-bottom: 1rem;
+
+    mat-card-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #333;
+    }
+  }
+
+  mat-form-field {
+    margin-bottom: 1.25rem;
+
+    &.full-width {
+      width: 100%;
+    }
+  }
+
+  button {
+    margin-top: 1rem;
+    height: 48px;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
+  }
+
+  mat-card-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+
+    a {
+      font-weight: 500;
+      color: #1976d2;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.mat-mdc-form-field-hint{
+  color:red
+}

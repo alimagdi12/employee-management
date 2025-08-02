@@ -1,0 +1,68 @@
+<h2 mat-dialog-title>{{ 'employeeDetails.title' | translate }}</h2>
+<mat-dialog-content>
+  <div class="details-container">
+    <div class="detail-row">
+      <span class="detail-label">{{ 'employeeDetails.name' | translate }}:</span>
+      <span class="detail-value">{{ data.employee.name }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">{{ 'employeeDetails.code' | translate }}:</span>
+      <span class="detail-value">{{ data.employee.code }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">{{ 'employeeDetails.maritalStatus' | translate }}:</span>
+      <span class="detail-value">{{ data.employee.maritalStatus }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">{{ 'employeeDetails.birthdate' | translate }}:</span>
+      <span class="detail-value">{{ formatDate(data.employee.birthdate) }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">{{ 'employeeDetails.phone' | translate }}:</span>
+      <span class="detail-value">{{ data.employee.phone || '-' }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">{{ 'employeeDetails.religion' | translate }}:</span>
+      <span class="detail-value">{{ data.employee.religion || '-' }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">{{ 'employeeDetails.address' | translate }}:</span>
+      <span class="detail-value">{{ data.employee.address || '-' }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">{{ 'employeeDetails.job' | translate }}:</span>
+      <span class="detail-value">{{ data.employee.job || '-' }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">{{ 'employeeDetails.appointmentDate' | translate }}:</span>
+      <span class="detail-value">{{ formatDate(data.employee.appointmentDate) }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">{{ 'employeeDetails.workReceiptDate' | translate }}:</span>
+      <span class="detail-value">{{ formatDate(data.employee.workReceiptDate) }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">{{ 'employeeDetails.schoolEntryDate' | translate }}:</span>
+      <span class="detail-value">{{ data.employee.schoolEntryDate ? formatDate(data.employee.schoolEntryDate) : '-' }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">{{ 'employeeDetails.currentDegree' | translate }}:</span>
+      <span class="detail-value">{{ data.employee.currentDegree || '-' }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">{{ 'employeeDetails.currentDegreeDate' | translate }}:</span>
+      <span class="detail-value">{{ data.employee.currentDegreeDate ? formatDate(data.employee.currentDegreeDate) : '-' }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">{{ 'employeeDetails.transferPlace' | translate }}:</span>
+      <span class="detail-value">{{ data.employee.transferPlace || '-' }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">{{ 'employeeDetails.insuranceNumber' | translate }}:</span>
+      <span class="detail-value">{{ data.employee.insuranceNumber || '-' }}</span>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>{{ 'employeeDetails.close' | translate }}</button>
+</mat-dialog-actions>

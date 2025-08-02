@@ -1,0 +1,176 @@
+@import 'variables';
+@import 'utilities';
+
+.header {
+  background-size: cover;
+  width: 100%;
+  padding: 20px;
+
+  &.not-home-header {
+    background-image: none;
+    height: 86px;
+    padding-top: 0;
+    margin-bottom: 40px;
+  }
+}
+
+nav {
+  width: 70%;
+  margin: auto;
+  height: 120px;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 17px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  position: relative;
+  background-color: white;
+  padding: 20px;
+
+  &.not-home-nav {
+    width: 100%;
+    background-color: map-get($map: $blue, $key: 'lighter');
+    border-radius: 0;
+    margin-top: 0;
+    height: 132px;
+  }
+}
+
+.logo-section {
+  height: 100%;
+  grid-column: span 5;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  &.not-home-logo {
+    grid-column: 3 / 5;
+  }
+
+  img {
+    height: 86px;
+    object-fit: contain;
+
+    &.not-home-logo-img {
+      height: 100%;
+      object-fit: none;
+    }
+  }
+}
+
+.details {
+  grid-column: span 7;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 20px;
+
+  &.not-home-details {
+    grid-column: 7 / 12;
+  }
+}
+
+.data {
+  display: flex;
+  align-items: end;
+}
+
+.pos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.pos img {
+  width: 22px;
+  height: 11px;
+}
+
+.language {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.links a {
+  color: map-get($map: $blue, $key: 'main');
+  font-size: 17px;
+  font-weight: 500;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.login-btn {
+  background-color: transparent;
+  border: 1px solid map-get($map: $orange, $key: 'lighter');
+  border-radius: 17px;
+  height: 33px;
+  width: 135px;
+  color: map-get($map: $blue, $key: 'main');
+  font-size: 17px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+
+  &.en {
+    width: 90px;
+  }
+
+  p {
+    font-size: 11px;
+    color: map-get($map: $blue, $key: 'main');
+    margin-bottom: 5px;
+  }
+}
+
+span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: map-get($map: $blue, $key: 'main');
+  border-radius: 50%;
+  padding: 3px 5px;
+}
+
+.bell {
+  width: 23px;
+  height: 24px;
+  &.bell-en {
+    margin-right: 30px;
+  }
+  &.bell-ar {
+    margin-left: 30px;
+  }
+}
+
+.lang-button,
+.currency-button:not(:disabled) {
+  color: map-get($map: $blue, $key: 'main');
+  font-size: 17px;
+  font-weight: 500;
+  background-color: transparent;
+  border: none;
+}
+
+.vertical-divider {
+  border-left: 2px solid #ccc;
+  height: 21px;
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+

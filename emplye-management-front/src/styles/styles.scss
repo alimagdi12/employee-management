@@ -1,0 +1,316 @@
+@use '@angular/material' as mat;
+
+@import './variables.scss';
+@import './colors.scss';
+
+@font-face {
+  font-family: 'Diodrum Arabic';
+  src: url('../../public/fonts/diodrumArabic-Extralight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Diodrum Arabic';
+  src: url('../../public/fonts/diodrumArabic-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Diodrum Arabic';
+  src: url('../../public/fonts/diodrumArabic-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Diodrum Arabic';
+  src: url('../../public/fonts/diodrumArabic-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Diodrum Arabic';
+  src: url('../../public/fonts/diodrumArabic-Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Diodrum Arabic';
+  src: url('../../public/fonts/diodrumArabic-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Diodrum Arabic', sans-serif !important;
+  margin: 0;
+  padding: 0;
+}
+
+.calenderMenu {
+  height: 100%;
+  transform-origin: left top;
+  border-radius: 14px !important;
+  padding: 0.5% 1% !important;
+  display: flex !important;
+  justify-content: space-between;
+  width: 40rem;
+  max-width: unset !important;
+  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+
+  .mat-mdc-menu-content {
+    width: 100%;
+
+    .date-summary-full {
+      width: 100%;
+      border-radius: 12px;
+    }
+  }
+
+  .searchBoxPicker {
+    width: 100%;
+    border: none;
+    direction: ltr !important;
+    .ngb-dp-header {
+      background-color: transparent !important;
+      margin-bottom: 2%;
+    }
+
+    .ngb-dp-arrow-btn {
+      color: black;
+      font-family: 'Lato';
+    }
+
+    .ngb-dp-month {
+      width: 100%;
+      .ngb-dp-week {
+        padding-left: 1.25rem;
+        padding-top: 0.3rem;
+      }
+    }
+
+    .ngb-dp-month-name {
+      background-color: transparent;
+      color: black;
+      font-size: 20px;
+      font-family: 'Lato';
+    }
+
+    .ngb-dp-weekdays {
+      background-color: transparent;
+      border: none;
+      padding: 1%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .ngb-dp-weekday {
+      color: black;
+      font-family: Open Sans;
+      font-size: 18px;
+      margin: 0 0.2rem;
+    }
+
+    .ngb-dp-day {
+      margin: 0 0.2rem;
+    }
+  }
+
+  .custom-day {
+    text-align: center;
+    padding: 0.185rem 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 2rem;
+    width: 2rem;
+
+    border: none;
+    font-family: 'Lato';
+    font-size: 18px;
+    border-radius: 8px;
+  }
+
+  .ngb-dp-day.disabled {
+    color: #808080 !important;
+  }
+
+  .custom-day.focused {
+    background-color: map-get($map: $blue, $key: 'main');
+    color: white;
+  }
+
+  .custom-day:hover {
+    background-color: map-get($map: $blue, $key: 'main');
+    color: white;
+  }
+
+  .custom-day.faded {
+    background-color: map-get($map: $blue, $key: 'main');
+    color: #000000;
+  }
+
+  .custom-day.range,
+  .custom-day.focused-range {
+    background-color: map-get($map: $blue, $key: 'main');
+    color: white;
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+$blue-palette: (
+  50: #e1f5fc,
+  100: #b3e5fc,
+  200: #81d4fa,
+  300: #4fc3f7,
+  400: #29b6f6,
+  500: #159cd6,
+  600: #128cc1,
+  700: #0f79a7,
+  800: #0c6790,
+  900: #08496a,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #000,
+    500: #fff,
+    600: #fff,
+    700: #fff,
+    800: #fff,
+    900: #fff,
+  ),
+);
+
+$orange-palette: (
+  50: #fff1e6,
+  100: #ffdbba,
+  200: #ffc38c,
+  300: #ffab5e,
+  400: #ff9840,
+  500: #f18723,
+  600: #d77920,
+  700: #b8641a,
+  800: #994f14,
+  900: #6c360d,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #000,
+    500: #fff,
+    600: #fff,
+    700: #fff,
+    800: #fff,
+    900: #fff,
+  ),
+);
+
+$red-palette: (
+  50: #ffe5e5,
+  100: #ffb8b8,
+  200: #ff8a8a,
+  300: #ff5c5c,
+  400: #ff3737,
+  500: #f71c1c,
+  600: #df1919,
+  700: #c61515,
+  800: #ae1212,
+  900: #8b0e0e,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #000,
+    500: #fff,
+    600: #fff,
+    700: #fff,
+    800: #fff,
+    900: #fff,
+  ),
+);
+
+$gray-palette: (
+  50: #f5f5f5,
+  100: #d9d9d9,
+  200: #bdbdbd,
+  300: #a0a0a0,
+  400: #8a8a8a,
+  500: #707070,
+  600: #61605a,
+  700: #52504a,
+  800: #3c3b36,
+  900: #2b2a26,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #000,
+    500: #fff,
+    600: #fff,
+    700: #fff,
+    800: #fff,
+    900: #fff,
+  ),
+);
+
+$white-palette: (
+  50: #ffffff,
+  100: #ffffff,
+  200: #ffffff,
+  300: #ffffff,
+  400: #ffffff,
+  500: #ffffff,
+  600: #f2f2f2,
+  700: #e6e6e6,
+  800: #d9d9d9,
+  900: #cccccc,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #000,
+    500: #000,
+    600: #000,
+    700: #000,
+    800: #000,
+    900: #000,
+  ),
+);
+
+$custom-blue: mat.define-palette($blue-palette);
+$custom-orange: mat.define-palette($orange-palette);
+$custom-red: mat.define-palette($red-palette);
+$custom-gray: mat.define-palette($gray-palette);
+$custom-white: mat.define-palette($white-palette);
+
+$custom-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $custom-blue,
+      accent: $custom-orange,
+      warn: $custom-red,
+      grayTheme: $custom-gray,
+      whiteTheme: $custom-white,
+    ),
+  )
+);
+
+// Include styles
+@include mat.core();
+@include mat.all-component-themes($custom-theme);

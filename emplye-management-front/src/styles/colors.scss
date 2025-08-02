@@ -1,0 +1,31 @@
+@import 'variables';
+
+$blue: (
+  'main': $blue-main,
+  'lightest': $blue-lightest,
+  'lighter': $blue-lighter,
+  'sky': $blue-sky,
+  'light': $blue-light,
+  'normal': $blue-normal,
+  'medium': $blue-medium,
+  'deep': $blue-deep,
+  'dark': $blue-dark,
+);
+
+$orange: (
+  'main': $orange-main,
+  'lighter': $orange-lighter,
+  'dark': $orange-dark,
+  'light': $orange-light,
+);
+
+$gray: (
+  'main': $gray-main,
+  'medium': $gray-medium,
+  'light': $gray-light,
+);
+
+$red: (
+  'one': $red-one,
+  'two': $red-two,
+);

@@ -1,0 +1,151 @@
+<div class="container" [dir]="currentLanguage === 'ar' ? 'rtl' : 'ltr'">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ currentLanguage === 'ar' ? 'إضافة موظف جديد' : 'Add New Employee' }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>{{ currentLanguage === 'ar' ? 'الاسم' : 'Name' }}</mat-label>
+            <input matInput formControlName="name">
+            <mat-error *ngIf="employeeForm.get('name')?.hasError('required')">
+              {{ currentLanguage === 'ar' ? 'الاسم مطلوب' : 'Name is required' }}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>{{ currentLanguage === 'ar' ? 'الكود' : 'Code' }}</mat-label>
+            <input matInput formControlName="code">
+            <mat-error *ngIf="employeeForm.get('code')?.hasError('required')">
+              {{ currentLanguage === 'ar' ? 'الكود مطلوب' : 'Code is required' }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>{{ currentLanguage === 'ar' ? 'الحالة الاجتماعية' : 'Marital Status' }}</mat-label>
+            <mat-select formControlName="maritalStatus">
+              <mat-option *ngFor="let status of maritalStatusOptions"
+                         [value]="currentLanguage === 'ar' ? status.valueAr : status.valueEn">
+                {{ getDisplayText(status) }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="employeeForm.get('maritalStatus')?.hasError('required')">
+              {{ currentLanguage === 'ar' ? 'الحالة الاجتماعية مطلوبة' : 'Marital status is required' }}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>{{ currentLanguage === 'ar' ? 'تاريخ الميلاد' : 'Birthdate' }}</mat-label>
+            <input matInput [matDatepicker]="birthdatePicker" formControlName="birthdate">
+            <mat-datepicker-toggle matSuffix [for]="birthdatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #birthdatePicker></mat-datepicker>
+            <mat-error *ngIf="employeeForm.get('birthdate')?.hasError('required')">
+              {{ currentLanguage === 'ar' ? 'تاريخ الميلاد مطلوب' : 'Birthdate is required' }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>{{ currentLanguage === 'ar' ? 'الهاتف' : 'Phone' }}</mat-label>
+            <input matInput formControlName="phone">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>{{ currentLanguage === 'ar' ? 'الدين' : 'Religion' }}</mat-label>
+            <mat-select formControlName="religion">
+              <mat-option *ngFor="let religion of religionOptions"
+                         [value]="currentLanguage === 'ar' ? religion.valueAr : religion.valueEn">
+                {{ getDisplayText(religion) }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ currentLanguage === 'ar' ? 'العنوان' : 'Address' }}</mat-label>
+          <textarea matInput formControlName="address" rows="2"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ currentLanguage === 'ar' ? 'الوظيفة' : 'Job' }}</mat-label>
+          <mat-select formControlName="job">
+            <mat-option *ngFor="let job of jobOptions"
+                       [value]="currentLanguage === 'ar' ? job.valueAr : job.valueEn">
+              {{ getDisplayText(job) }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>{{ currentLanguage === 'ar' ? 'تاريخ التعيين' : 'Appointment Date' }}</mat-label>
+            <input matInput [matDatepicker]="appointmentDatePicker" formControlName="appointmentDate">
+            <mat-datepicker-toggle matSuffix [for]="appointmentDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #appointmentDatePicker></mat-datepicker>
+            <mat-error *ngIf="employeeForm.get('appointmentDate')?.hasError('required')">
+              {{ currentLanguage === 'ar' ? 'تاريخ التعيين مطلوب' : 'Appointment date is required' }}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>{{ currentLanguage === 'ar' ? 'تاريخ استلام العمل' : 'Work Receipt Date' }}</mat-label>
+            <input matInput [matDatepicker]="workReceiptDatePicker" formControlName="workReceiptDate">
+            <mat-datepicker-toggle matSuffix [for]="workReceiptDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #workReceiptDatePicker></mat-datepicker>
+            <mat-error *ngIf="employeeForm.get('workReceiptDate')?.hasError('required')">
+              {{ currentLanguage === 'ar' ? 'تاريخ استلام العمل مطلوب' : 'Work receipt date is required' }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>{{ currentLanguage === 'ar' ? 'تاريخ دخول المدرسة' : 'School Entry Date' }}</mat-label>
+            <input matInput [matDatepicker]="schoolEntryDatePicker" formControlName="schoolEntryDate">
+            <mat-datepicker-toggle matSuffix [for]="schoolEntryDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #schoolEntryDatePicker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>{{ currentLanguage === 'ar' ? 'الدرجة الحالية' : 'Current Degree' }}</mat-label>
+            <input matInput formControlName="currentDegree">
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>{{ currentLanguage === 'ar' ? 'تاريخ الحصول على الدرجة' : 'Degree Date' }}</mat-label>
+            <input matInput [matDatepicker]="degreeDatePicker" formControlName="currentDegreeDate">
+            <mat-datepicker-toggle matSuffix [for]="degreeDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #degreeDatePicker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>{{ currentLanguage === 'ar' ? 'جهة النقل' : 'Transfer Place' }}</mat-label>
+            <input matInput formControlName="transferPlace">
+          </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ currentLanguage === 'ar' ? 'رقم التأمين' : 'Insurance Number' }}</mat-label>
+          <input matInput formControlName="insuranceNumber">
+        </mat-form-field>
+
+        <div class="form-actions">
+          <button mat-raised-button color="primary" type="submit" [disabled]="employeeForm.invalid || loading">
+            <span *ngIf="!loading">{{ currentLanguage === 'ar' ? 'حفظ' : 'Save' }}</span>
+            <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
+          </button>
+          <button mat-raised-button type="button" (click)="router.navigate(['/employees'])">
+            {{ currentLanguage === 'ar' ? 'إلغاء' : 'Cancel' }}
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,68 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ 'employees.title' | translate }}</mat-card-title>
+      <button mat-raised-button color="primary" routerLink="/employees/add">
+        <mat-icon>add</mat-icon> {{ 'employees.addEmployee' | translate }}
+      </button>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="filter-container">
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'employees.filterByName' | translate }}</mat-label>
+          <input matInput (keyup)="applyFilter($event)" [placeholder]="'employees.filter' | translate" />
+        </mat-form-field>
+      </div>
+
+      <div class="table-container">
+        <table mat-table [dataSource]="dataSource" matSort>
+          <!-- Code Column -->
+          <ng-container matColumnDef="code">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'employees.code' | translate }}</th>
+            <td mat-cell *matCellDef="let employee">{{ employee.code }}</td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'employees.name' | translate }}</th>
+            <td mat-cell *matCellDef="let employee">{{ employee.name }}</td>
+          </ng-container>
+
+          <!-- Job Column -->
+          <ng-container matColumnDef="job">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'employees.job' | translate }}</th>
+            <td mat-cell *matCellDef="let employee">{{ employee.job || '-' }}</td>
+          </ng-container>
+
+          <!-- Phone Column -->
+          <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'employees.phone' | translate }}</th>
+            <td mat-cell *matCellDef="let employee">{{ employee.phone || '-' }}</td>
+          </ng-container>
+
+          <!-- Actions Column -->
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>{{ 'employees.actions' | translate }}</th>
+            <td mat-cell *matCellDef="let employee">
+              <button mat-icon-button color="primary" (click)="showEmployeeDetails(employee)">
+                <mat-icon>visibility</mat-icon>
+              </button>
+              <button mat-icon-button color="primary" (click)="editEmployee(employee._id)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="deleteEmployee(employee._id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

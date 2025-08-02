@@ -1,0 +1,87 @@
+<div
+  class="header"
+  [ngClass]="{ 'not-home-header': sharedService.isSegmentPresent(['results', 'checkout', 'conirmation']) }"
+>
+  <nav [ngClass]="{ 'not-home-nav': sharedService.isSegmentPresent(['results', 'checkout', 'conirmation']) }">
+    <div
+      class="logo-section"
+      [ngClass]="{ 'not-home-logo': sharedService.isSegmentPresent(['results', 'checkout', 'conirmation']) }"
+      (click)="navigateHome()"
+    >
+      <img
+        src="logo.jpg"
+        alt=""
+        [ngClass]="{ 'not-home-logo-img': sharedService.isSegmentPresent(['results', 'checkout', 'conirmation']) }"
+      />
+    </div>
+
+    <div
+      class="details"
+      [ngClass]="{ 'not-home-details': sharedService.isSegmentPresent(['results', 'checkout', 'conirmation']) }"
+    >
+      <div class="data">
+        <div class="language">
+          <button mat-button [matMenuTriggerFor]="language" class="lang-button">
+            {{ translate.currentLang.toUpperCase() }}
+          </button>
+          <mat-menu #language="matMenu">
+            <button mat-menu-item (click)="updateLang('en')">
+              {{ 'header.languageMenu.english' | translate }}
+            </button>
+            <button mat-menu-item (click)="updateLang('ar')">
+              {{ 'header.languageMenu.arabic' | translate }}
+            </button>
+          </mat-menu>
+          <div class="vertical-divider"></div>
+        </div>
+      </div>
+
+      <div class="links">
+        <a href="">{{ 'header.support' | translate }}</a>
+        <a href="">{{ 'header.myTravels' | translate }}</a>
+      </div>
+
+      <ng-container *ngIf="authService.currentUser$ | async as user; else loginButton">
+        <button
+          mat-button
+          [matMenuTriggerFor]="userMenu"
+          class="user-profile-button"
+          [ngClass]="{ en: translate.currentLang === 'en' }"
+        >
+          <span class="username">{{ user.username }}</span>
+          <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu #userMenu="matMenu">
+          <button
+            mat-menu-item
+            *ngFor="let item of userMenuItems"
+            (click)="handleUserAction(item.action)"
+          >
+            <mat-icon>{{ item.icon }}</mat-icon>
+            <span>{{ item.label | translate }}</span>
+          </button>
+        </mat-menu>
+      </ng-container>
+
+      <ng-template #loginButton>
+        <button
+          class="login-btn"
+          [ngClass]="{ en: translate.currentLang === 'en' }"
+          (click)="router.navigate(['/auth/login'])"
+        >
+          <p>{{ 'header.login' | translate }}</p>
+          <span>
+            <img src="icons/home/user.svg" alt="" class="usser-img" />
+          </span>
+        </button>
+      </ng-template>
+
+      <img
+        src="icons/home/bell.svg"
+        alt=""
+        class="bell"
+        [ngClass]="translate.currentLang === 'en' ? 'bell-en' : 'bell-ar'"
+      />
+    </div>
+  </nav>
+</div>

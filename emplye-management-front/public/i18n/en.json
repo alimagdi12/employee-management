@@ -1,0 +1,42 @@
+{
+
+  "header": {
+    "support": "Support",
+    "myTravels": "My Travels",
+    "login": "Sign In",
+    "languageMenu": {
+      "english": "EN (English)",
+      "arabic": "AR (العربية)"
+    }
+  },
+  "employees": {
+    "title": "Employees",
+    "addEmployee": "Add Employee",
+    "filterByName": "Filter by Name",
+    "filter": "Filter",
+    "code": "Code",
+    "name": "Name",
+    "job": "Job",
+    "phone": "Phone",
+    "actions": "Actions"
+  },
+  "employeeDetails": {
+    "title": "Employee Details",
+    "name": "Name",
+    "code": "Code",
+    "maritalStatus": "Marital Status",
+    "birthdate": "Birthdate",
+    "phone": "Phone",
+    "religion": "Religion",
+    "address": "Address",
+    "job": "Job",
+    "appointmentDate": "Appointment Date",
+    "workReceiptDate": "Work Receipt Date",
+    "schoolEntryDate": "School Entry Date",
+    "currentDegree": "Current Degree",
+    "currentDegreeDate": "Degree Date",
+    "transferPlace": "Transfer Place",
+    "insuranceNumber": "Insurance Number",
+    "close": "Close"
+  }
+}
