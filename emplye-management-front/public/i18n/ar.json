@@ -38,5 +38,33 @@
     "transferPlace": "جهة النقل",
     "insuranceNumber": "رقم التأمين",
     "close": "إغلاق"
+  },
+  "login": {
+    "title": "تسجيل الدخول",
+    "emailLabel": "البريد الإلكتروني",
+    "emailRequired": "البريد الإلكتروني مطلوب",
+    "emailInvalid": "يرجى إدخال بريد إلكتروني صحيح",
+    "passwordLabel": "كلمة المرور",
+    "passwordRequired": "كلمة المرور مطلوبة",
+    "button": "تسجيل الدخول",
+    "signup": "ليس لديك حساب؟ سجل الآن",
+    "forgotPassword": "هل نسيت كلمة المرور؟"
+  },
+  "signup": {
+    "title": "إنشاء حساب",
+    "emailLabel": "البريد الإلكتروني",
+    "emailRequired": "البريد الإلكتروني مطلوب",
+    "emailInvalid": "يرجى إدخال بريد إلكتروني صالح",
+    "usernameLabel": "اسم المستخدم",
+    "usernameRequired": "اسم المستخدم مطلوب",
+    "phoneLabel": "رقم الهاتف",
+    "phoneRequired": "رقم الهاتف مطلوب",
+    "passwordLabel": "كلمة المرور",
+    "passwordHint": "8 أحرف على الأقل مع حرف كبير ورمز",
+    "passwordRequired": "كلمة المرور مطلوبة",
+    "passwordMinlength": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
+    "passwordPattern": "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل ورمز",
+    "button": "إنشاء حساب",
+    "loginRedirect": "لديك حساب بالفعل؟ سجل الدخول"
   }
 }

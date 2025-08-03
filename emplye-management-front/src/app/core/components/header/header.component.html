@@ -32,16 +32,10 @@
               {{ 'header.languageMenu.arabic' | translate }}
             </button>
           </mat-menu>
-          <div class="vertical-divider"></div>
         </div>
       </div>
 
-      <div class="links">
-        <a href="">{{ 'header.support' | translate }}</a>
-        <a href="">{{ 'header.myTravels' | translate }}</a>
-      </div>
-
-      <ng-container *ngIf="authService.currentUser$ | async as user; else loginButton">
+      <ng-container *ngIf="user as user; else loginButton">
         <button
           mat-button
           [matMenuTriggerFor]="userMenu"
@@ -75,13 +69,6 @@
           </span>
         </button>
       </ng-template>
-
-      <img
-        src="icons/home/bell.svg"
-        alt=""
-        class="bell"
-        [ngClass]="translate.currentLang === 'en' ? 'bell-en' : 'bell-ar'"
-      />
     </div>
   </nav>
 </div>

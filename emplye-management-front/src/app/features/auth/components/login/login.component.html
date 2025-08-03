@@ -1,44 +1,48 @@
 <div class="container">
-  <mat-card class="login-card">
+  <mat-card class="login-card animate__animated animate__fadeInDown">
     <mat-card-header>
-      <mat-card-title>Login</mat-card-title>
+      <mat-card-title class="title animate__animated animate__fadeInUp">
+        {{ 'login.title' | translate }}
+      </mat-card-title>
     </mat-card-header>
-    <mat-card-content>
+
+    <mat-card-content class="animate__animated animate__fadeInUp animate__delay-1s">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Email</mat-label>
+          <mat-label>{{ 'login.emailLabel' | translate }}</mat-label>
           <input matInput formControlName="email" type="email">
           <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
-            Email is required
+            {{ 'login.emailRequired' | translate }}
           </mat-error>
           <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
-            Please enter a valid email
+            {{ 'login.emailInvalid' | translate }}
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Password</mat-label>
+          <mat-label>{{ 'login.passwordLabel' | translate }}</mat-label>
           <input matInput formControlName="password" type="password">
           <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
-            Password is required
+            {{ 'login.passwordRequired' | translate }}
           </mat-error>
         </mat-form-field>
 
         <button
           mat-raised-button
           color="primary"
-          class="full-width"
+          class="full-width login-btn"
           type="submit"
           [disabled]="loginForm.invalid || loading"
         >
-          <span *ngIf="!loading">Login</span>
+          <span *ngIf="!loading">{{ 'login.button' | translate }}</span>
           <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
         </button>
       </form>
     </mat-card-content>
-    <mat-card-actions>
-      <a mat-button routerLink="/signup">Don't have an account? Sign Up</a>
-      <a mat-button routerLink="/forgot-password">Forgot Password?</a>
+
+    <mat-card-actions class="actions animate__animated animate__fadeInUp animate__delay-2s">
+      <a mat-button routerLink="/signup">{{ 'login.signup' | translate }}</a>
+      <a mat-button routerLink="/forgot-password" disabled="true">{{ 'login.forgotPassword' | translate }}</a>
     </mat-card-actions>
   </mat-card>
 </div>

@@ -37,9 +37,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.loginForm.invalid) {
-      return;
-    }
+    if (this.loginForm.invalid) return;
 
     this.loading = true;
     const loginDto: LoginDto = this.loginForm.value;
@@ -60,4 +58,5 @@ export class LoginComponent implements OnInit {
       }
     });
   }
+
 }

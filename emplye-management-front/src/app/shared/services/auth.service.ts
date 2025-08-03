@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 import { environment } from '../../core/env/environment';
@@ -28,9 +28,6 @@ export class AuthService {
     if (userJson) {
       const user: User = JSON.parse(userJson);
       this.currentUserSubject.next(user);
-      if (user.token) {
-        this.getCurrentUser().subscribe();
-      }
     }
   }
 
@@ -39,8 +36,7 @@ export class AuthService {
       tap((response: any) => {
         if (response.user) {
           const user: User = response.user;
-          localStorage.setItem('currentUser', JSON.stringify(user));
-          this.currentUserSubject.next(user);
+          this.setCurrentUser(user);
         }
       })
     );
@@ -56,11 +52,13 @@ export class AuthService {
           };
           localStorage.setItem('currentUser', JSON.stringify(user));
           this.currentUserSubject.next(user);
-          this.getCurrentUser().subscribe();
         }
-      })
+      }),
+      // Wait for user info to be fetched before completing login
+      switchMap(() => this.getCurrentUser())
     );
   }
+
 
   getCurrentUser(): Observable<User> {
     const headers = new HttpHeaders({
@@ -71,12 +69,16 @@ export class AuthService {
       tap((user: User) => {
         const currentUser: User = {
           ...user,
-          token: this.token || undefined // Convert null to undefined if needed
+          token: this.token || undefined
         };
-        localStorage.setItem('currentUser', JSON.stringify(currentUser));
-        this.currentUserSubject.next(currentUser);
+        this.setCurrentUser(currentUser);
       })
     );
+  }
+
+  private setCurrentUser(user: User): void {
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    this.currentUserSubject.next(user);
   }
 
   forgotPassword(forgotPasswordDto: ForgotPasswordDto): Observable<any> {

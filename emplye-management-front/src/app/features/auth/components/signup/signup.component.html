@@ -1,49 +1,49 @@
 <div class="container">
   <mat-card class="signup-card">
     <mat-card-header>
-      <mat-card-title>Sign Up</mat-card-title>
+      <mat-card-title>{{ 'signup.title' | translate }}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
         <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Email</mat-label>
+          <mat-label>{{ 'signup.emailLabel' | translate }}</mat-label>
           <input matInput formControlName="email" type="email">
           <mat-error *ngIf="signupForm.get('email')?.hasError('required')">
-            Email is required
+            {{ 'signup.emailRequired' | translate }}
           </mat-error>
           <mat-error *ngIf="signupForm.get('email')?.hasError('email')">
-            Please enter a valid email
+            {{ 'signup.emailInvalid' | translate }}
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Username</mat-label>
+          <mat-label>{{ 'signup.usernameLabel' | translate }}</mat-label>
           <input matInput formControlName="username">
           <mat-error *ngIf="signupForm.get('username')?.hasError('required')">
-            Username is required
+            {{ 'signup.usernameRequired' | translate }}
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Phone</mat-label>
+          <mat-label>{{ 'signup.phoneLabel' | translate }}</mat-label>
           <input matInput formControlName="phone" type="tel">
           <mat-error *ngIf="signupForm.get('phone')?.hasError('required')">
-            Phone number is required
+            {{ 'signup.phoneRequired' | translate }}
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Password</mat-label>
+          <mat-label>{{ 'signup.passwordLabel' | translate }}</mat-label>
           <input matInput formControlName="password" type="password">
-          <mat-hint>At least 8 characters with 1 uppercase and 1 symbol</mat-hint>
+          <mat-hint>{{ 'signup.passwordHint' | translate }}</mat-hint>
           <mat-error *ngIf="signupForm.get('password')?.hasError('required')">
-            Password is required
+            {{ 'signup.passwordRequired' | translate }}
           </mat-error>
           <mat-error *ngIf="signupForm.get('password')?.hasError('minlength')">
-            Password must be at least 8 characters
+            {{ 'signup.passwordMinlength' | translate }}
           </mat-error>
           <mat-error *ngIf="signupForm.get('password')?.hasError('pattern')">
-            Password must contain at least one uppercase letter and one symbol
+            {{ 'signup.passwordPattern' | translate }}
           </mat-error>
         </mat-form-field>
 
@@ -54,13 +54,13 @@
           type="submit"
           [disabled]="signupForm.invalid || loading"
         >
-          <span *ngIf="!loading">Sign Up</span>
+          <span *ngIf="!loading">{{ 'signup.button' | translate }}</span>
           <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
         </button>
       </form>
     </mat-card-content>
     <mat-card-actions>
-      <a mat-button routerLink="/auth/login">Already have an account? Login</a>
+      <a mat-button routerLink="/auth/login">{{ 'signup.loginRedirect' | translate }}</a>
     </mat-card-actions>
   </mat-card>
 </div>

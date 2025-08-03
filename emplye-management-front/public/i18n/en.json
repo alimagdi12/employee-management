@@ -38,5 +38,33 @@
     "transferPlace": "Transfer Place",
     "insuranceNumber": "Insurance Number",
     "close": "Close"
+  },
+  "login": {
+    "title": "Login",
+    "emailLabel": "Email",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Please enter a valid email",
+    "passwordLabel": "Password",
+    "passwordRequired": "Password is required",
+    "button": "Login",
+    "signup": "Don't have an account? Sign Up",
+    "forgotPassword": "Forgot Password?"
+  },
+  "signup": {
+    "title": "Sign Up",
+    "emailLabel": "Email",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Please enter a valid email",
+    "usernameLabel": "Username",
+    "usernameRequired": "Username is required",
+    "phoneLabel": "Phone",
+    "phoneRequired": "Phone number is required",
+    "passwordLabel": "Password",
+    "passwordHint": "At least 8 characters with 1 uppercase and 1 symbol",
+    "passwordRequired": "Password is required",
+    "passwordMinlength": "Password must be at least 8 characters",
+    "passwordPattern": "Password must contain at least one uppercase letter and one symbol",
+    "button": "Sign Up",
+    "loginRedirect": "Already have an account? Login"
   }
 }

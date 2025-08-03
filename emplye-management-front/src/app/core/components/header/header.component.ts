@@ -8,6 +8,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AuthService } from '../../../shared/services/auth.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-header',
@@ -28,30 +29,21 @@ export class HeaderComponent implements OnInit {
   public sharedService = inject(SharedService);
   public router = inject(Router);
   public authService = inject(AuthService);
+
+  user: User | null = null;
   selectedLanguage = 'ar';
   isHome: boolean = true;
   isLoading = false;
+
   userMenuItems = [
     { label: 'header.profile', icon: 'account_circle', action: 'profile' },
     { label: 'header.logout', icon: 'logout', action: 'logout' }
   ];
 
   ngOnInit(): void {
-    this.checkAuthState();
-  }
-
-  checkAuthState() {
-    if (this.authService.isAuthenticated()) {
-      this.isLoading = true;
-      this.authService.getCurrentUser().subscribe({
-        next: (user) => {
-          this.isLoading = false;
-        },
-        error: () => {
-          this.isLoading = false;
-        }
-      });
-    }
+    this.authService.currentUser$.subscribe((user) => {
+      this.user = user;
+    });
   }
 
   updateLang(lang: 'ar' | 'en') {
